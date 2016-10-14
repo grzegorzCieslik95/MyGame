@@ -1,0 +1,28 @@
+.button { 
+	-fx-background-color: #041332;
+	-fx-text-fill: white;
+	-fx-border-style: dotted;
+	-fx-border-color:white;
+	-fx-font: 16px "Serif";
+	-fx-border-radius: 20;
+	-fx-background-radius: 20;
+}
+
+.button:hover{
+	-fx-background-color: #135df1;
+}
+.button:pressed{
+	-fx-background-color:#1385f1;
+}
+
+#backgroundPane {
+	-fx-background-color: #082765;
+}
+
+.label {
+	-fx-text-fill: white;
+}
+
+.choice-box .label {
+	-fx-text-fill: black;
+}
