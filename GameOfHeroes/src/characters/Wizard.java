@@ -19,7 +19,7 @@ public class Wizard {
 		System.out.println(x + " " + y);
 		map.pixel[x][y].setOnMouseEntered(new EventHandler<MouseEvent>() {
 			public void handle(MouseEvent event) {
-				map.comunication.setText("Ten czarodziej może cię uleczyć!!! \nPotrzeba: 3kamienie, 3drewna,2klejnoty");
+				map.comunication.setText("Ten czarodziej może cię uleczyć!!! \nPotrzeba: \n3kamienie \n3drewna \n2klejnoty");
 
 			}
 		});

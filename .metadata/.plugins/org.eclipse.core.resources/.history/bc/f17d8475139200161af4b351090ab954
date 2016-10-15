@@ -1,0 +1,74 @@
+package firstGui;
+
+import java.net.URL;
+import java.util.ResourceBundle;
+
+import Map.Map;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.ComboBox;
+import javafx.scene.control.Label;
+import javafx.scene.layout.AnchorPane;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
+
+public class FirstGuiController {
+	@FXML
+	private AnchorPane ArchorPanePicture;
+
+	@FXML
+	private Label heroPicture;
+
+	@FXML
+	private Label infoLabel;
+
+	@FXML
+	private ComboBox<String> comboBox;
+
+	@FXML
+	private Button button;
+
+	@FXML
+	void CreateCharacter(ActionEvent event) {
+		Map map = Map.getInstance();
+		String name = comboBox.getSelectionModel().getSelectedItem();
+		if (name != null) {
+			Stage stage = new Stage();
+			map.nameHero=name;
+			Scene scene = map.returnScene();			
+			stage.setScene(scene);
+			stage.setTitle("GameOfHeroes");
+			stage.initModality(Modality.WINDOW_MODAL);
+			stage.initOwner(((Node) event.getSource()).getScene().getWindow());
+			stage.show();
+		}
+	}
+
+	@FXML
+	void initialize() {
+
+		ObservableList<String> list = FXCollections.observableArrayList();
+		list.add("Alan");
+		list.add("Krispin");
+		list.add("Daga");
+		list.add("Aslan");
+		comboBox.setItems(list);
+
+		comboBox.getSelectionModel().selectedIndexProperty().addListener(new ChangeListener<Number>() {
+			public void changed(ObservableValue<? extends Number> observableValue, Number number, Number number2) {
+				String name = comboBox.getItems().get((Integer) number2);
+				heroPicture.setStyle("-fx-background-image: url('image//character/" + name + "FrontMain.png')");
+			}
+		});
+
+	}
+}

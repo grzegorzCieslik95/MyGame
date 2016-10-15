@@ -1,0 +1,12 @@
+
+#helloLabel{
+	-fx-font-size:60px;
+	-fx-font-style: italic;
+}
+.label{
+	-fx-font-size:12px;
+	-fx-font-style: italic;
+}
+.button{
+	
+}

@@ -15,7 +15,7 @@ public class DevilBoss implements MonsterInterface {
 	public void SuperDevilAction(int x,int y){
 		map.pixel[x][y].setOnMouseEntered(new EventHandler<MouseEvent>() {
 			public void handle(MouseEvent event) {
-				map.comunication.setText("Boss Diabłów!!!\nMusisz mieć dużo Hp aby z nim wygrać!!\nMoc: "+attack+"\nŻycie: "+hp);
+				map.comunication.setText("Boss Diabłów!!!\nMusisz mieć dużo Hp \naby z nim wygrać!!\nMoc: "+attack+"\nŻycie: "+hp);
 
 			}
 		});

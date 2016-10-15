@@ -15,6 +15,7 @@ import item.Stone;
 import item.Wood;
 import javafx.event.Event;
 import javafx.event.EventHandler;
+import javafx.geometry.Pos;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -23,6 +24,7 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
+import javafx.scene.text.Font;
 import javafx.stage.Stage;
 import monster.Devil;
 import monster.DevilBoss;
@@ -73,62 +75,63 @@ public class Map {
 		 * 
 		 */
 		// helloLabel
-		Label helloLabel = new Label("Panel gracza");
-		helloLabel.setLayoutX(630);
-		helloLabel.setLayoutY(20);
+		Label helloLabel = new Label("Panel Gracza");
+		helloLabel.setLayoutX(610);
+		helloLabel.setLayoutY(0);
 		helloLabel.setId("helloLabel");
 		helloLabel.getStylesheets().add("css/PlayerPanelCss.css");
 		// comunication
 		comunication = new Label("Komunikaty");
 		comunication.setLayoutX(620);
-		comunication.setLayoutY(240);
+		comunication.setLayoutY(280);
+		comunication.setId("comunication");
 		comunication.getStylesheets().add("css/PlayerPanelCss.css");
 
 		Label lvlCommunicateLabel = new Label("LVL: ");
-		lvlCommunicateLabel.setLayoutX(810);
-		lvlCommunicateLabel.setLayoutY(30);
+		lvlCommunicateLabel.setLayoutX(615);
+		lvlCommunicateLabel.setLayoutY(145);
 		lvlCommunicateLabel.getStylesheets().add("css/PlayerPanelCss.css");
 
 		// hpLabelValue
 		lvlValueLabel = new Label();
 		lvlValueLabel.setText(Integer.toString(hero.getLvl()));
-		lvlValueLabel.setLayoutX(850);
-		lvlValueLabel.setLayoutY(30);
+		lvlValueLabel.setLayoutX(670);
+		lvlValueLabel.setLayoutY(145);
 		lvlValueLabel.getStylesheets().add("css/PlayerPanelCss.css");
 
 		// hpLabelCommunicate
-		Label hpCommunicateLabel = new Label("Twoje hp: ");
+		Label hpCommunicateLabel = new Label("HP: ");
 		hpCommunicateLabel.setLayoutX(615);
 		hpCommunicateLabel.setLayoutY(70);
 		hpCommunicateLabel.getStylesheets().add("css/PlayerPanelCss.css");
 		// hpLabelValue
 		hpValueLabel = new Label();
 		hpValueLabel.setText(Integer.toString(hero.getHp()));
-		hpValueLabel.setLayoutX(680);
+		hpValueLabel.setLayoutX(670);
 		hpValueLabel.setLayoutY(70);
 		hpValueLabel.getStylesheets().add("css/PlayerPanelCss.css");
 
 		// attackLabel
-		Label attackCommunicateLabel = new Label("Twój atak: ");
+		Label attackCommunicateLabel = new Label("ATAK: ");
 		attackCommunicateLabel.setLayoutX(615);
 		attackCommunicateLabel.setLayoutY(95);
 		attackCommunicateLabel.getStylesheets().add("css/PlayerPanelCss.css");
 		// AttackValue
 		attackValueLabel = new Label();
 		attackValueLabel.setText(Integer.toString(hero.getAttack()));
-		attackValueLabel.setLayoutX(680);
+		attackValueLabel.setLayoutX(670);
 		attackValueLabel.setLayoutY(95);
 		attackValueLabel.getStylesheets().add("css/PlayerPanelCss.css");
 
 		// ExpComunication
-		Label expCommunicationLabel = new Label("Ilość doś: ");
+		Label expCommunicationLabel = new Label("DOŚ: ");
 		expCommunicationLabel.setLayoutX(615);
 		expCommunicationLabel.setLayoutY(120);
 		expCommunicationLabel.getStylesheets().add("css/PlayerPanelCss.css");
 		// hpLabelValue
 		expValueLabel = new Label();
 		expValueLabel.setText(Integer.toString(hero.getExp()));
-		expValueLabel.setLayoutX(680);
+		expValueLabel.setLayoutX(670);
 		expValueLabel.setLayoutY(120);
 		expValueLabel.getStylesheets().add("css/PlayerPanelCss.css");
 
@@ -180,7 +183,7 @@ public class Map {
 
 		actionButton = new Button("Zbierz surowiec!");
 		actionButton.setLayoutX(610);
-		actionButton.setLayoutY(150);
+		actionButton.setLayoutY(180);
 		actionButton.setDisable(true);
 		actionButton.setOnMouseClicked(event -> {
 			try {
@@ -220,7 +223,7 @@ public class Map {
 
 		warButton = new Button("Stocz walkę!");
 		warButton.setLayoutX(750);
-		warButton.setLayoutY(150);
+		warButton.setLayoutY(180);
 		warButton.setDisable(true);
 		warButton.setOnMouseClicked(event -> {
 			Fight fight = new Fight();
@@ -265,7 +268,7 @@ public class Map {
 		});
 		hellerButton = new Button("Ulecz się!");
 		hellerButton.setLayoutX(610);
-		hellerButton.setLayoutY(190);
+		hellerButton.setLayoutY(220);
 		hellerButton.setDisable(true);
 		hellerButton.setOnMouseClicked(event -> {
 			try {
@@ -302,7 +305,17 @@ public class Map {
 			}
 
 		});
+		 Font.loadFont(
+			      Map.class.getResource("/image/ani2.ttf").toExternalForm(), 
+			      10
+			    );
+		 Font.loadFont(
+			      Map.class.getResource("/image/ani.ttf").toExternalForm(), 
+			      10
+			    );
 
+		root.setStyle("-fx-background-image: url('image/green.jpg')");
+		root.getStylesheets().add("css/PlayerPanelCss.css");
 		root.getChildren().add(hellerButton);
 		root.getChildren().add(warButton);
 		root.getChildren().add(lvlCommunicateLabel);
@@ -338,8 +351,8 @@ public class Map {
 							printMap(x, y);
 							y = y - 1;
 							hero.setPosY(y);
-								pixel[x][y].getPicture()
-										.setStyle("-fx-background-image: url('image/character/"+hero.getName()+"Back.png')");
+							pixel[x][y].getPicture().setStyle(
+									"-fx-background-image: url('image/character/" + hero.getName() + "Back.png')");
 							actionButton.setDisable(true);
 							warButton.setDisable(true);
 							hellerButton.setDisable(true);
@@ -355,14 +368,14 @@ public class Map {
 								hellerButton.setDisable(false);
 
 							}
-							pixel[x][y].getPicture()
-									.setStyle("-fx-background-image: url('image/character/"+hero.getName()+"Back.png')");
+							pixel[x][y].getPicture().setStyle(
+									"-fx-background-image: url('image/character/" + hero.getName() + "Back.png')");
 						} catch (ArrayIndexOutOfBoundsException e) {
 
 						}
 					}
 					if (keyEvent.getCode() == KeyCode.DOWN) {
-						
+
 						int x = hero.getPosX();
 						int y = hero.getPosY();
 						if (y + 1 < 12 && pixel[x][y + 1].getItem() == null && pixel[x][y + 1].getMonster() == null
@@ -370,9 +383,9 @@ public class Map {
 							printMap(x, y);
 							y = y + 1;
 							hero.setPosY(y);
-							
-								pixel[x][y].getPicture()
-										.setStyle("-fx-background-image: url('image/character/"+hero.getName()+"Front.png')");
+
+							pixel[x][y].getPicture().setStyle(
+									"-fx-background-image: url('image/character/" + hero.getName() + "Front.png')");
 
 							actionButton.setDisable(true);
 							warButton.setDisable(true);
@@ -387,8 +400,8 @@ public class Map {
 							} else if (pixel[x][y + 1].getWizard() != null) {
 								hellerButton.setDisable(false);
 							}
-							pixel[x][y].getPicture()
-							.setStyle("-fx-background-image: url('image/character/"+hero.getName()+"Front.png')");
+							pixel[x][y].getPicture().setStyle(
+									"-fx-background-image: url('image/character/" + hero.getName() + "Front.png')");
 						} catch (ArrayIndexOutOfBoundsException e) {
 
 						}
@@ -402,9 +415,9 @@ public class Map {
 							printMap(x, y);
 							x = x + 1;
 							hero.setPosX(x);
-							
-								pixel[x][y].getPicture()
-										.setStyle("-fx-background-image: url('image/character/"+hero.getName()+"Right.png')");
+
+							pixel[x][y].getPicture().setStyle(
+									"-fx-background-image: url('image/character/" + hero.getName() + "Right.png')");
 							actionButton.setDisable(true);
 							warButton.setDisable(true);
 							hellerButton.setDisable(true);
@@ -413,12 +426,12 @@ public class Map {
 							if (pixel[x + 1][y].getItem() != null) {
 								actionButton.setDisable(false);
 							} else if (pixel[x + 1][y].getMonster() != null) {
-								warButton.setDisable(false);							
+								warButton.setDisable(false);
 							} else if (pixel[x + 1][y].getWizard() != null) {
 								hellerButton.setDisable(false);
 							}
-							pixel[x][y].getPicture()
-							.setStyle("-fx-background-image: url('image/character/"+hero.getName()+"Right.png')");
+							pixel[x][y].getPicture().setStyle(
+									"-fx-background-image: url('image/character/" + hero.getName() + "Right.png')");
 						} catch (ArrayIndexOutOfBoundsException e) {
 
 						}
@@ -431,9 +444,9 @@ public class Map {
 							printMap(x, y);
 							x = x - 1;
 							hero.setPosX(x);
-							
-								pixel[x][y].getPicture()
-										.setStyle("-fx-background-image: url('image/character/"+hero.getName()+"Left.png')");
+
+							pixel[x][y].getPicture().setStyle(
+									"-fx-background-image: url('image/character/" + hero.getName() + "Left.png')");
 							actionButton.setDisable(true);
 							warButton.setDisable(true);
 							hellerButton.setDisable(true);
@@ -443,12 +456,11 @@ public class Map {
 								actionButton.setDisable(false);
 							} else if (pixel[x - 1][y].getMonster() != null) {
 								warButton.setDisable(false);
-							}
-							else if (pixel[x - 1][y].getWizard() != null) {
+							} else if (pixel[x - 1][y].getWizard() != null) {
 								hellerButton.setDisable(false);
 							}
-							pixel[x][y].getPicture()
-							.setStyle("-fx-background-image: url('image/character/"+hero.getName()+"Left.png')");
+							pixel[x][y].getPicture().setStyle(
+									"-fx-background-image: url('image/character/" + hero.getName() + "Left.png')");
 						} catch (ArrayIndexOutOfBoundsException e) {
 
 						}
@@ -508,7 +520,7 @@ public class Map {
 				k++;
 			}
 		}
-		
+
 		k = 0;
 		while (k < 4) {
 			int p = rand.nextInt(12);
