@@ -4,7 +4,6 @@ package hero;
 
 import Map.Map;
 import bag.Bag;
-import ground.Grass;
 import item.Item;
 
 

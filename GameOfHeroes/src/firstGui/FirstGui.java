@@ -21,8 +21,7 @@ public class FirstGui extends Application{
 		AnchorPane anchorPane = loader.load();
 		anchorPane.getStylesheets().add("firstGui/firstGui.css");
 		Scene scene = new Scene(anchorPane);
-		
-		
+		primaryStage.setResizable(false);
 		primaryStage.setScene(scene);
 		primaryStage.show();
 	}

@@ -3,6 +3,7 @@ package equipment;
 import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 public class EquipmentShow {
 	private static EquipmentShow instance = null;
@@ -25,6 +26,9 @@ public class EquipmentShow {
 		armor.setStyle("-fx-background-image: url('image/armor.png')");
 		root.getChildren().add(armor);
 		root.setStyle("-fx-background-image: url('image/warrior.jpg')");
+		stage.setX(780);
+		stage.setY(190);
+		stage.initStyle(StageStyle.UNDECORATED);
 		stage.setScene(scene2);
 	}
 	

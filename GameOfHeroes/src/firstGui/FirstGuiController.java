@@ -49,6 +49,7 @@ public class FirstGuiController {
 			stage.setTitle("GameOfHeroes");
 			stage.initModality(Modality.WINDOW_MODAL);
 			stage.initOwner(((Node) event.getSource()).getScene().getWindow());
+			stage.setResizable(false);
 			stage.show();
 		}
 	}
@@ -66,7 +67,7 @@ public class FirstGuiController {
 		comboBox.getSelectionModel().selectedIndexProperty().addListener(new ChangeListener<Number>() {
 			public void changed(ObservableValue<? extends Number> observableValue, Number number, Number number2) {
 				String name = comboBox.getItems().get((Integer) number2);
-				heroPicture.setStyle("-fx-background-image: url('image//character/" + name + "FrontMain.png')");
+				heroPicture.setStyle("-fx-background-image: url('image//character/" + name + "Main.png')");
 			}
 		});
 

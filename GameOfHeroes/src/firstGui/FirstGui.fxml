@@ -35,7 +35,7 @@
             <Cursor fx:constant="DEFAULT" />
          </cursor>
       </ImageView>
-      <Label layoutX="22.0" layoutY="52.0" prefHeight="106.0" prefWidth="357.0" text=" Game Of Heroes" textOverrun="WORD_ELLIPSIS" AnchorPane.bottomAnchor="492.0" AnchorPane.leftAnchor="22.0" AnchorPane.rightAnchor="21.0" AnchorPane.topAnchor="52.0">
+      <Label layoutX="23.0" layoutY="14.0" prefHeight="106.0" prefWidth="357.0" text=" Game Of Heroes" textOverrun="WORD_ELLIPSIS" AnchorPane.bottomAnchor="530.0" AnchorPane.leftAnchor="23.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="14.0">
          <font>
             <Font name="Ani" size="47.0" />
          </font>
@@ -51,11 +51,11 @@
             </RadialGradient>
          </textFill>
       </Label>
-      <Label fx:id="heroPicture" layoutX="140.0" layoutY="202.0" prefHeight="210.0" prefWidth="120.0">
+      <Label fx:id="heroPicture" layoutX="140.0" layoutY="198.0" prefHeight="210.0" prefWidth="120.0">
          <cursor>
             <Cursor fx:constant="DEFAULT" />
          </cursor></Label>
-      <Label layoutX="117.0" layoutY="133.0" prefHeight="20.0" prefWidth="166.0" text="Wybierz postać">
+      <Label layoutX="119.0" layoutY="115.0" prefHeight="20.0" prefWidth="166.0" text="Wybierz postać">
          <font>
             <Font name="Ani" size="25.0" />
          </font>
